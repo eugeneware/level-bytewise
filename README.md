@@ -15,7 +15,7 @@ This module is installed via npm:
 $ npm install level-bytewise
 ```
 
-## Example Usage
+## Example Usage (put and get)
 
 ``` js
 var levelBytewise = require('level-bytewise');
@@ -28,5 +28,29 @@ users.put(['eugene'], { color: 'black' }, function (err) {
     console.log(data);
     // { color: 'black }
   });
+});
+```
+
+## Example Usage (build and index on color)
+
+``` js
+var levelBytewise = require('level-bytewise'),
+    timestamp = require('monotonic-timestamp');
+var db = levelBytewise('/tmp/path-to-db')
+var users = db.sublevel('users');
+var colors = db.sublevel('colors');
+users.pre(function (change, add, batch) {
+  // build an index on `color` and store it in the `colors` sublevel
+  add({
+    key: [change.value.color, timestamp()],
+    value: change.key,
+    prefix: colors
+  });
+});
+users.put(['eugene'], { color: 'black' }, function (err) {
+  if (err) throw err;
+  colors.createReadStream()
+    .on('data', console.log);
+  // { key: ['black', 1461480614762], value: ['eugene'] }
 });
 ```

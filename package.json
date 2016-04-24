@@ -31,6 +31,8 @@
     "xtend": "^4.0.1"
   },
   "devDependencies": {
+    "level-hooks": "^4.5.0",
+    "monotonic-timestamp": "0.0.9",
     "redtape": "^1.0.0",
     "rimraf": "^2.5.2",
     "tape": "^4.4.0"
