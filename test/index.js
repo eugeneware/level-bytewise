@@ -3,10 +3,11 @@ var redtape = require('redtape'),
     os = require('os'),
     xtend = require('xtend'),
     hooks = require('level-hooks'),
+    path = require('path'),
     timestamp = require('monotonic-timestamp'),
     levelBytewise = require('..');
 
-var dbPath = os.tmpdir() + 'bytewise-db-' + Date.now();
+var dbPath = path.join(os.tmpdir(), 'bytewise-db-' + Date.now());
 var it = redtape({
   beforeEach: function (cb) {
     rimraf(dbPath, cb);
