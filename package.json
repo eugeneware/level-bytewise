@@ -1,0 +1,38 @@
+{
+  "name": "level-bytewise",
+  "version": "1.0.0",
+  "description": "leveldb with bytewise key encodings and bytewise friendly sublevels",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eugeneware/level-bytewise"
+  },
+  "keywords": [
+    "bytewise",
+    "leveldb",
+    "levelup",
+    "database",
+    "databases",
+    "sublevel",
+    "level-sublevel"
+  ],
+  "author": "Eugene Ware <eugene@noblesamurai.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/eugeneware/level-bytewise/issues"
+  },
+  "dependencies": {
+    "bytewise": "^1.1.0",
+    "level-hyper": "^1.2.1",
+    "level-sublevel": "^6.5.4",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "redtape": "^1.0.0",
+    "rimraf": "^2.5.2",
+    "tape": "^4.4.0"
+  }
+}
